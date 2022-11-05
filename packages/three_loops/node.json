@@ -1,0 +1,79 @@
+{
+  "name": "Three loops with transitions",
+  "permissions": {
+    "run-as-root": "Access to devices and system files",
+    "unboxed": "Access to /proc",
+    "gpio": "Measure distance",
+    "serial": "Measure distance via serial"
+  },
+  "options": [
+    {
+      "title": "Trigger distance (cm)",
+      "ui_width": 5,
+      "name": "trigger_distance",
+      "type": "integer",
+      "default": 100
+    },
+    {
+      "title": "Video Rotation",
+      "ui_width": 5,
+      "name": "video_rotation",
+      "type": "select",
+      "options": [
+        [0, "0°"],
+        [90, "90°"],
+        [180, "180°"],
+        [270, "270°"]
+      ],
+      "default": 0
+    },
+    {
+      "title": "Loop 1",
+      "ui_width": 10,
+      "name": "loop_1",
+      "type": "resource",
+      "valid": ["video"],
+      "default": "blank.mp4"
+    },
+    {
+      "title": "Transition 1 -> 2",
+      "ui_width": 10,
+      "name": "transition_1",
+      "type": "resource",
+      "valid": ["video"],
+      "default": "blank.mp4"
+    },
+    {
+      "title": "Loop 2",
+      "ui_width": 10,
+      "name": "loop_2",
+      "type": "resource",
+      "valid": ["video"],
+      "default": "blank.mp4"
+    },
+    {
+      "title": "Transition 2 -> 3",
+      "ui_width": 10,
+      "name": "transition_2",
+      "type": "resource",
+      "valid": ["video"],
+      "default": "blank.mp4"
+    },
+    {
+      "title": "Loop 3",
+      "ui_width": 10,
+      "name": "loop_3",
+      "type": "resource",
+      "valid": ["video"],
+      "default": "blank.mp4"
+    },
+    {
+      "title": "Transition 3 -> 1",
+      "ui_width": 10,
+      "name": "transition_3",
+      "type": "resource",
+      "valid": ["video"],
+      "default": "blank.mp4"
+    }
+  ]
+}

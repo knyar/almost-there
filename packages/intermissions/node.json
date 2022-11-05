@@ -1,0 +1,55 @@
+{
+  "name": "Loop with intermissions",
+  "permissions": {
+    "run-as-root": "Access to devices and system files",
+    "unboxed": "Access to /proc",
+    "gpio": "Measure distance",
+    "serial": "Measure distance via serial"
+  },
+  "options": [
+    {
+      "title": "Trigger distance (cm)",
+      "ui_width": 5,
+      "name": "trigger_distance",
+      "type": "integer",
+      "default": 100
+    },
+    {
+      "title": "Video Rotation",
+      "ui_width": 5,
+      "name": "video_rotation",
+      "type": "select",
+      "options": [
+        [0, "0°"],
+        [90, "90°"],
+        [180, "180°"],
+        [270, "270°"]
+      ],
+      "default": 0
+    },
+    {
+      "title": "Loop",
+      "ui_width": 10,
+      "name": "loop",
+      "type": "resource",
+      "valid": ["video"],
+      "default": "blank.mp4"
+    },
+    {
+      "title": "Intermission 1",
+      "ui_width": 10,
+      "name": "intermission_1",
+      "type": "resource",
+      "valid": ["video"],
+      "default": "blank.mp4"
+    },
+    {
+      "title": "Intermission 2",
+      "ui_width": 10,
+      "name": "intermission_2",
+      "type": "resource",
+      "valid": ["video"],
+      "default": "blank.mp4"
+    }
+  ]
+}
