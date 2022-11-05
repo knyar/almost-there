@@ -8,6 +8,8 @@ import logging
 import random
 import socket
 import time
+import os.path
+import json
 
 
 class US100(object):
@@ -59,16 +61,26 @@ class HCSR04(object):
       pulse_start = time.time()
       if pulse_start - start_time > 1:
         # Time out after 1 second
+        logging.debug("start timeout")
         return None
 
     while GPIO.input(self.ECHO) == 1:
       pulse_end = time.time()
       if pulse_end - start_time > 1:
         # Time out after 1 second
+        logging.debug("end timeout")
         return None
 
     pulse_duration = pulse_end - pulse_start
     return pulse_duration * 17150
+
+def get_sensor():
+  if os.path.exists("config.json"):
+    with open("config.json") as f:
+      j = json.load(f)
+      if "sensor_type" in j and j["sensor_type"] == "hcsr04":
+        return HCSR04()
+  return US100()
 
 def add_to_window(window, max_size, measure):
   window.append(measure)
@@ -84,7 +96,8 @@ def send_message(msg, port):
 def main():
   logging.basicConfig(format='%(asctime)-15s %(message)s', level=logging.DEBUG)
 
-  sensor = US100()
+  sensor = get_sensor()
+  logging.info("Got sensor %s" % sensor)
   atexit.register(sensor.cleanup)
 
   window = []

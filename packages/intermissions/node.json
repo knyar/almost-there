@@ -28,6 +28,17 @@
       "default": 0
     },
     {
+      "title": "Sensor type",
+      "ui_width": 5,
+      "name": "sensor_type",
+      "type": "select",
+      "options": [
+        ["us100", "US-100 (new)"],
+        ["hcsr04", "HC-SR04 (old)"]
+      ],
+      "default": "us100"
+    },
+    {
       "title": "Loop",
       "ui_width": 10,
       "name": "loop",
