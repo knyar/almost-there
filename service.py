@@ -2,14 +2,15 @@
 
 import RPi.GPIO as GPIO
 import adafruit_us100
-import serial
 import atexit
-import logging
-import random
-import socket
-import time
-import os.path
 import json
+import logging
+import os.path
+import random
+import serial
+import socket
+import sys
+import time
 
 
 class US100(object):
@@ -118,6 +119,10 @@ def main():
 
     # Send to info-beamer
     send_message(smoothened, ("127.0.0.1", 4444))
+
+    if min(window) > 2000:
+      logging.debug("Weird data %s; exiting" % window)
+      sys.exit(1)
 
     # Sleep 20-30 ms.
     time.sleep(0.02 + (0.01 * random.random()))
