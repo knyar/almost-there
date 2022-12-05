@@ -1,0 +1,43 @@
+{
+  "name": "Blurred video",
+  "permissions": {
+    "run-as-root": "Access to devices and system files",
+    "unboxed": "Access to /proc",
+    "gpio": "Measure distance",
+    "serial": "Measure distance via serial"
+  },
+  "options": [
+    {
+      "title": "Video Rotation",
+      "ui_width": 5,
+      "name": "video_rotation",
+      "type": "select",
+      "options": [
+        [0, "0°"],
+        [90, "90°"],
+        [180, "180°"],
+        [270, "270°"]
+      ],
+      "default": 0
+    },
+    {
+      "title": "Sensor type",
+      "ui_width": 5,
+      "name": "sensor_type",
+      "type": "select",
+      "options": [
+        ["us100", "US-100 (new)"],
+        ["hcsr04", "HC-SR04 (old)"]
+      ],
+      "default": "us100"
+    },
+    {
+      "title": "Video loop",
+      "ui_width": 10,
+      "name": "default_loop",
+      "type": "resource",
+      "valid": ["video"],
+      "default": "blank.mp4"
+    }
+  ]
+}

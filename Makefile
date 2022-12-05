@@ -1,8 +1,9 @@
 BUILD := build
-packages := intermissions two_loops three_loops
+packages := intermissions two_loops three_loops blurer
 REPO_intermissions = https://info-beamer.com/package/21456.git
 REPO_two_loops = https://info-beamer.com/package/21265.git
 REPO_three_loops = https://info-beamer.com/package/21563.git
+REPO_blurer = https://info-beamer.com/package/35518.git
 
 all: $(packages)
 
@@ -18,7 +19,7 @@ $(packages):
 		git add . && \
 		git commit -a -m 'add files' && \
 		git remote add beamer $(REPO_$@) && \
-		git push beamer --force
+		git push --set-upstream beamer master --force
 
 .PHONY: clean
 clean:
